@@ -20,19 +20,16 @@
   <header>
     <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2">
       <a class="navbar-brand" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
+        <img src="https://th.bing.com/th/id/OIP.yFma_bEq9pdvkLqFP2oRlwHaFB?pid=ImgDet&rs=1" height="45" alt=""
           loading="lazy">
-        <span class="ml-2">BTeam-Princess.client</span>
+        <span class="ml-2">BTeam-Princess</span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <!-- NAVLINKS -->
-          <a href="#/about" class="nav-link">About</a>
-        </div>
+
       </div>
       <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
     </nav>
@@ -41,42 +38,43 @@
   <!-- SECTION -->
   <main>
 
-    <section id="auth-template">
-      <!-- TODO REMOVE THE AUTH TEMPLATE ONCE YOU VERIFY YOUR AUTH SETTINGS -->
-      <div class="container-fluid">
-        <div class="row my-3">
-          <div class="col-lg-5" id="auth-settings">
-            <div class="card p-2 skeleton-loader">
-              <div class="card-title p-2">
-                <div class="d-flex align-items-center">
-                  <div class="skeleton-loader avatar"></div>
-                  <div class="skeleton-loader text mx-2"></div>
-                </div>
+
+    <section id="router-view">
+      <div class="containter-flud">
+        <div class="row justify-content-center" id="princess">
+          <!-- <div class="col-md-8 col-12 p-3">
+            <div>
+              <img class="elevation-5 selectable rounded img-fluid"
+                onclick="app.PrincessController.setActivePrincess('${this.id}')"
+                src="https://images.unsplash.com/photo-1556227691-add1cf868ff6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1682&q=80"
+                alt="${this.name}">
+            </div>
+            <div class="row py-2 justify-space-between">
+              <div class="col-4">
+                <p class="fs-5 p-2"><b>${this.name}</b></p>
               </div>
-              <div class="card-body border-top">
-                <div class="skeleton-loader text block"></div>
-                <div class="skeleton-loader text block"></div>
-                <div class="skeleton-loader text block"></div>
+              <div class="col-4 text-center">
+                <button class="p-2 btn btn-success mdi mdi-thumb-up">${this.likes}</button>
+              </div>
+              <div class="col-4 text-end">
+                <button class="p-2 mdi mdi-comment">Comments</button>
               </div>
             </div>
-          </div>
+          </div> -->
+
+          <!-- <div class="d-flex justify-content-around p-2">
+
+          </div> -->
         </div>
       </div>
     </section>
-
-    <section id="router-view">
-      <!-- primary viewport -->
-    </section>
-
-
   </main>
 
-  <!-- SECTION -->
-  <footer class="bg-dark text-light">
-    <div class="text-center no-select">
-      <p class="mb-0"><small>Made with 💖 by CodeWorks</small></p>
-    </div>
-  </footer>
+  <!-- SECTION Modal/Active Princess -->
+
+
+
+
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22/auth0-spa-js.production.js"></script>
