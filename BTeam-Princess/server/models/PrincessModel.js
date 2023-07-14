@@ -4,7 +4,7 @@ export const PrincessSchema = new Schema({
   name: { type: String, required: true, minlength: 3, maxlength: 30 },
   hasHighHeels: { type: Boolean, default: true },
   hairColor: { type: String, maxlength: 30 },
-  imgUrl: { type: String, required: true, maxlength: 500 },
+  imgUrl: { type: String, required: true, maxlength: 1000 },
   likes: { type: Number },
   description: { type: String, maxlength: 250 },
   creatorId: { type: Schema.Types.ObjectId, required: true }
