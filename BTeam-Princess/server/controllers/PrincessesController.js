@@ -2,6 +2,7 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
 import { princessesService } from "../services/PrincessesService.js";
 import BaseController from "../utils/BaseController.js";
+import { commentsService } from "../services/CommentsService.js";
 
 export class PrincessesController extends BaseController {
   constructor() {
@@ -9,6 +10,7 @@ export class PrincessesController extends BaseController {
     this.router
       .get('', this.getPrincesses)
       .get('/:princessId', this.getPrincessById)
+      .get('/:princessId/comments', this.getCommentsByPrincessId)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createPrincess)
       .delete('/:princessId', this.removePrincess)
@@ -50,6 +52,16 @@ export class PrincessesController extends BaseController {
       const userId = req.userInfo.id
       await princessesService.removePrincess(princessId, userId)
       res.send('She went to the farm')
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getCommentsByPrincessId(req, res, next) {
+    try {
+      const princessId = req.params.princessId
+      const comment = await commentsService.getCommentsByPrincessId(princessId)
+      res.send(comment)
     } catch (error) {
       next(error)
     }
