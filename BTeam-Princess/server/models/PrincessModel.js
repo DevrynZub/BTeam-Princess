@@ -1,4 +1,5 @@
 import { Schema } from "mongoose";
+import { CommentSchema } from "./Comment.js";
 
 export const PrincessSchema = new Schema({
   name: { type: String, required: true, minlength: 3, maxlength: 30 },
@@ -7,7 +8,20 @@ export const PrincessSchema = new Schema({
   imgUrl: { type: String, required: true, maxlength: 1000 },
   likes: { type: Number },
   description: { type: String, maxlength: 250 },
-  creatorId: { type: Schema.Types.ObjectId, required: true }
-  // castleId: { type: Schema.Types.ObjectId, required: true, ref: 'Castle' },
+  creatorId: { type: Schema.Types.ObjectId, required: true },
+  castleId: { type: Schema.Types.ObjectId, required: true, ref: 'Castle' },
 },
   { timestamps: true, toJSON: { virtuals: true } })
+
+PrincessSchema.virtual('Castle', {
+  localField: 'castleId',
+  foreignField: '_id',
+  justOne: true,
+  ref: 'Castle'
+})
+PrincessSchema.virtual('creator', {
+  localField: 'creatorId',
+  foreignField: '_id',
+  ref: 'Account'
+})
+

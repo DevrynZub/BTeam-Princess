@@ -3,7 +3,8 @@ import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 class PrincessesService {
   async getPrincesses() {
-    const princesses = await dbContext.Princesses.find()
+    const princesses = await dbContext.Princesses.find().populate('creator', 'name picture').populate('')
+    await princesses
     return princesses
   }
 
@@ -23,6 +24,7 @@ class PrincessesService {
   async removePrincess(princessId, userId) {
     const princessToRemove = await this.getPrincessById(princessId)
     if (princessToRemove.creatorId.toString() != userId) {
+
       throw new Forbidden('Hey, you cant do that!')
     }
     await princessToRemove.remove()
