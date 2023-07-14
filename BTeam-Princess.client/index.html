@@ -28,6 +28,9 @@
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success"
+        onclick="app.PrincessController.setPrincessForm()">Create Princess</button>
+
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
       </div>
@@ -80,30 +83,87 @@
     <div class="modal-dialog" id="activePrincess">
       <!-- <div class="modal-content">
         <div class="modal-body">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-8">
-                <img src="https://wallpapercave.com/wp/wp11233576.jpg" alt="princess">
-              </div>
-              <div class="col-4">
-                <div class="row">
-                  <div class="col-8">Info/User Account</div>
-                  <div class="col-4 mdi mdi-delete">Delete</div>
-                  <div class="col-12">Description</div>
-                  <div class="col-12">Castle Info</div>
-                </div>
-                <div class="row">
-                  <div class="col-12">Database Comments</div>
-                  <div class="col-12">Add Comment</div>
-                  <div class="col-12">Likes</div>
-                </div>
-              </div>
+          <form onsubmit="app.PrincessController.createPrincess(event)">
+            <div class="mb-2">
+              <label for="name">Name Of Princess</label>
+              <input type="text" name="name" id="name" minlength="3" maxlength="50" required placeholder="Name of Princess...">
             </div>
-          </div>
+            <div class="mb-2">
+              <label for="imgUrl">Princess Image</label>
+              <input type="url" name="imgUrl" id="imgUrl" minlength="3" maxlength="1000" required>
+            </div>
+            <div class="mb-2">
+              <label for="hasHighHeels">Does she wear high heels?</label>
+              <input type="checkbox" name="hasHighHeels" id="hasHighHeels" minlength="3" maxlength="50" required>
+            </div>
+            <div class="mb-2">
+              <label for="hairColor">Hair Color</label>
+              <input type="url" name="hairColor" id="hairColor" minlength="3" maxlength="1000" required>
+            </div>
+            <div class="mb-2">
+              <label for="castleId">WHat kind of Castle does she live in?</label>
+              <select id="castleId" name="castleId">
+                <option value="Sand Castle">Sand Castle</option>
+                <option value="Ice Castle">Ice Castle</option>
+                <option value="Aquatic Castle">Aquatic Castle</option>
+                <option value="Cottage">Cottage</option>
+                <option value="Stone Castle">Stone Castle</option>
+                <option value="Cave">Cave</option>
+              </select>
+            </div>
+            <div class="mb-2">
+              <label for="imgUrl">Description of Princess</label>
+              <input type="url" name="imgUrl" id="imgUrl" minlength="3" maxlength="1000" required>
+            </div>
+            <div>
+              <input type="submit">
+            </div>
+        
+        
+          </form>
         </div>
       </div> -->
     </div>
   </div>
+
+  <!-- <form onsubmit="app.PrincessController.createPrincess(event)">
+    <div class="mb-2">
+      <label for="name">Name Of Princess</label>
+      <input type="text" name="name" id="name" minlength="3" maxlength="50" required placeholder="Name of Princess...">
+    </div>
+    <div class="mb-2">
+      <label for="imgUrl">Princess Image</label>
+      <input type="url" name="imgUrl" id="imgUrl" minlength="3" maxlength="1000" required>
+    </div>
+    <div class="mb-2">
+      <label for="hasHighHeels">Does she wear high heels?</label>
+      <input type="checkbox" name="hasHighHeels" id="hasHighHeels" minlength="3" maxlength="50" required>
+    </div>
+    <div class="mb-2">
+      <label for="hairColor">Hair Color</label>
+      <input type="url" name="hairColor" id="hairColor" minlength="3" maxlength="1000" required>
+    </div>
+    <div class="mb-2">
+      <label for="castleId">WHat kind of Castle does she live in?</label>
+      <select id="castleId" name="castleId">
+        <option value="Sand Castle">Sand Castle</option>
+        <option value="Ice Castle">Ice Castle</option>
+        <option value="Aquatic Castle">Aquatic Castle</option>
+        <option value="Cottage">Cottage</option>
+        <option value="Stone Castle">Stone Castle</option>
+        <option value="Cave">Cave</option>
+      </select>
+    </div>
+    <div class="mb-2">
+      <label for="imgUrl">Description of Princess</label>
+      <input type="url" name="imgUrl" id="imgUrl" minlength="3" maxlength="1000" required>
+    </div>
+    <div>
+      <input type="submit">
+    </div>
+
+
+  </form> -->
 
 
 

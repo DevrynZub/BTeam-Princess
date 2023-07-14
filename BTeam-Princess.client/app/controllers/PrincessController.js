@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js";
+import { Princess } from "../models/Princess.js";
 import { princessService } from "../services/PrincessService.js";
 import { getFormData } from "../utils/FormHandler.js";
 import { Pop } from "../utils/Pop.js";
@@ -43,11 +44,21 @@ export class PrincessController {
   }
   async createPrincess(event) {
     try {
-      event.preventDefault
+      event.preventDefault()
       const form = event.target
       const formData = getFormData(form)
+      // @ts-ignore
+      if (formData.hasHighHeels == 'on') {
+        // @ts-ignore
+        formData.hasHighHeels = true
+      } else {
+        // @ts-ignore
+        formData.hasHighHeels = false
+      }
+
       await princessService.createPrincess(formData)
       form.reset()
+
     } catch (error) {
       console.log(error);
       Pop.error(error.message)
@@ -60,6 +71,22 @@ export class PrincessController {
     } catch (error) {
       Pop.error(error.message)
     }
+  }
+  async deletePrincess(princessId) {
+    try {
+      const areYouSure = await Pop.confirm('are you sure you want to delete this princess?')
+      if (!areYouSure) {
+        return
+      }
+      await princessService.deletePrincess(princessId)
+
+    } catch (error) {
+      console.log(error);
+      Pop.error(error.message)
+    }
+  }
+  setPrincessForm() {
+    setHTML('activePrincess', Princess.princessForm)
   }
 
 }

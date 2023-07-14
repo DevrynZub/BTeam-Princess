@@ -48,7 +48,7 @@ export class Princess {
               <div class="col-4">
                 <div class="row">
                   <div class="col-8">Info/User Account</div>
-                  <div class="col-4 mdi mdi-delete">Delete</div>
+                  <div class="col-4 "><button class="btn btn-danger mdi mdi-delete" onclick="app.PrincessController.deletePrincess('${this.id}')"></button></div>
                   <div class="col-12">Description</div>
                   <div class="col-12">Castle Info</div>
                 </div>
@@ -66,4 +66,51 @@ export class Princess {
 
   }
 
+  static get princessForm() {
+    return /*html*/`
+    <div class="modal-content">
+    <div class="modal-body ">
+      <form onsubmit="app.PrincessController.createPrincess(event)">
+        <div class="mb-2">
+          <label for="name">Name Of Princess</label>
+          <input type="text" name="name" id="name" minlength="3" maxlength="50" required placeholder="Name of Princess...">
+        </div>
+        <div class="mb-2">
+          <label for="imgUrl">Princess Image</label>
+          <input type="url" name="imgUrl" id="imgUrl" minlength="3" maxlength="1000" required>
+        </div>
+        <div class="mb-2">
+          <label for="hasHighHeels">Does she wear high heels?</label>
+          <input type="checkbox" name="hasHighHeels" id="hasHighHeels">
+        </div>
+        <div class="mb-2">
+          <label for="hairColor">Hair Color</label>
+          <input type="text" name="hairColor" id="hairColor" minlength="3" maxlength="30" required>
+        </div>
+        <div class="mb-2">
+          <label for="castleId">WHat kind of Castle does she live in?</label>
+          <select id="castleId" name="castleId">
+            <option value="Sand Castle">Sand Castle</option>
+            <option value="Ice Castle">Ice Castle</option>
+            <option value="Aquatic Castle">Aquatic Castle</option>
+            <option value="Cottage">Cottage</option>
+            <option value="Stone Castle">Stone Castle</option>
+            <option value="Cave">Cave</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <label for="description">Description of Princess</label>
+          <textarea id="description" name="description" rows="4" cols="50"></textarea>
+        </div>
+        <div>
+          <input type="submit">
+        </div>
+    </form>
+     <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div> 
+    </div>
+  </div>
+    `
+  }
 }

@@ -4,6 +4,22 @@ import { api } from "./AxiosService.js"
 
 
 class PrincessService {
+  async deletePrincess(princessId) {
+    const princessToBeDeleted = AppState.princesses.findIndex(p => p.id == princessId)
+
+    if (princessToBeDeleted == -1) {
+      throw new Error('Invalid ID')
+    }
+
+    await api.delete(`/api/princesses/${princessId}`)
+
+
+    AppState.princesses.splice(princessToBeDeleted, 1)
+
+    AppState.emit('princesses')
+
+
+  }
 
 
   async getPrincesses() {
@@ -16,10 +32,10 @@ class PrincessService {
   }
 
   async createPrincess(formData) {
-    const createdPrincess = await api.post('/api/princesses')
+    const createdPrincess = await api.post('/api/princesses', formData)
     const princess = new Princess(createdPrincess)
     AppState.princesses.push(princess)
-    AppState.emit('princess')
+    AppState.emit('princesses')
   }
 
 
