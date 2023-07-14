@@ -16,6 +16,8 @@ class ObservableAppState extends EventEmitter {
   /** @type {import('./models/Princess.js').Princess[]} */
   princesses = []
 
+  activePrincess = null
+
   // Used to load initial data
   init() {
 
