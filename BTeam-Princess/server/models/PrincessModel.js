@@ -9,7 +9,7 @@ export const PrincessSchema = new Schema({
   likes: { type: Number },
   description: { type: String, maxlength: 250 },
   creatorId: { type: Schema.Types.ObjectId, required: true },
-  castleId: { type: Schema.Types.ObjectId, required: true, ref: 'Castle' },
+  castleId: { type: Schema.Types.ObjectId, required: true, },
 },
   { timestamps: true, toJSON: { virtuals: true } })
 
