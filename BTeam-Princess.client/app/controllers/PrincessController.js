@@ -1,24 +1,34 @@
 import { AppState } from "../AppState.js";
 import { princessService } from "../services/PrincessService.js";
 import { getFormData } from "../utils/FormHandler.js";
-import { Pop } from "../utils/Pop";
+import { Pop } from "../utils/Pop.js";
 import { setHTML } from "../utils/Writer.js";
 
 
 function _drawPrincesses() {
-  const princesses = AppState.princess
+  let princesses = AppState.princesses
+  console.log('draw princesses', princesses);
   let template = ''
   princesses.forEach(p => template += p.PrincessTemplate)
 
   setHTML('princess', template)
+
+}
+
+function _drawActivePrincess() {
+
+  let activePrincess = AppState.princesses
+
+  setHTML()
 }
 
 
 
 export class PrincessController {
   constructor() {
-    console.log('this is my Princess Controller');
-    AppState.on('princess', _drawPrincesses)
+    // console.log('this is my Princess Controller');
+    AppState.on('account', this.getPrincesses)
+    AppState.on('princesses', _drawPrincesses)
   }
 
   async getPrincesses() {
@@ -38,6 +48,14 @@ export class PrincessController {
       form.reset()
     } catch (error) {
       console.log(error);
+      Pop.error(error.message)
+    }
+  }
+
+  setActivePrincess(princessId) {
+    try {
+      princessService.setActivePrincess(princessId)
+    } catch (error) {
       Pop.error(error.message)
     }
   }

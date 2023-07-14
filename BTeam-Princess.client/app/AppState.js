@@ -13,7 +13,8 @@ class ObservableAppState extends EventEmitter {
   values = loadState('values', [Value])
   socketData = []
 
-  princess = []
+  /** @type {import('./models/Princess.js').Princess[]} */
+  princesses = []
 
   // Used to load initial data
   init() {

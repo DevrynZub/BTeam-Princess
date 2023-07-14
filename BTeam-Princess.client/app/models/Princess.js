@@ -18,7 +18,7 @@ export class Princess {
     <div>
       <img class="elevation-5 selectable rounded img-fluid"
         onclick="app.PrincessController.setActivePrincess('${this.id}')"
-        src="https://images.unsplash.com/photo-1556227691-add1cf868ff6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1682&q=80"
+        src="${this.imgUrl}"
         alt="${this.name}">
     </div>
     <div class="row py-2 justify-space-between">
@@ -36,9 +36,9 @@ export class Princess {
     `
   }
 
-  // getActivePrincessTemplate() {
+  getActivePrincessTemplate() {
 
 
-  // }
+  }
 
 }

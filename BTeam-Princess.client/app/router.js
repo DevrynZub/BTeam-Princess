@@ -1,4 +1,6 @@
 import { AboutController } from "./controllers/AboutController.js";
+import { CastleController } from "./controllers/CastleController.js";
+import { CommentController } from "./controllers/CommentContoller.js";
 import { HomeController } from "./controllers/HomeController.js";
 import { PrincessController } from "./controllers/PrincessController.js";
 import { ValuesController } from "./controllers/ValuesController.js";
@@ -11,7 +13,7 @@ import { AboutView } from "./views/AboutView.js";
 export const router = [
   {
     path: '',
-    controller: PrincessController,
+    controller: [PrincessController, CastleController, CommentController],
     view: ''
   },
   {
