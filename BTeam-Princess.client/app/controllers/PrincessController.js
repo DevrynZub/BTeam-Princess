@@ -16,10 +16,11 @@ function _drawPrincesses() {
 }
 
 function _drawActivePrincess() {
+  let activePrincess = AppState.activePrincess
+  console.log('activePrincess', activePrincess);
 
-  let activePrincess = AppState.princesses
-
-  setHTML()
+  // @ts-ignore
+  setHTML('activePrincess', activePrincess.ActivePrincessTemplate)
 }
 
 
@@ -29,6 +30,7 @@ export class PrincessController {
     // console.log('this is my Princess Controller');
     AppState.on('account', this.getPrincesses)
     AppState.on('princesses', _drawPrincesses)
+    AppState.on('activePrincess', _drawActivePrincess)
   }
 
   async getPrincesses() {

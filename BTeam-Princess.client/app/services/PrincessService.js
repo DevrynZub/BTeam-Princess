@@ -24,9 +24,10 @@ class PrincessService {
 
 
   setActivePrincess(princessId) {
-    let foundPrincess = AppState.princesses.find(p => p.Id == princessId)
-    AppState.princesses = foundPrincess
-    console.log('[Found princess in application]', AppState.princesses);
+    let foundPrincess = AppState.princesses.find(p => p.id == princessId)
+    // @ts-ignore
+    AppState.activePrincess = foundPrincess
+    console.log('[Found princess in application]', AppState.activePrincess);
   }
 
 }
