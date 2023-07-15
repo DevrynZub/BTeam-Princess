@@ -2,7 +2,7 @@ import { Schema } from "mongoose";
 
 export const CommentSchema = new Schema({
   body: { type: String, required: true, minlength: 1, maxlength: 150 },
-  princessId: { type: Schema.Types.ObjectId, required: true, ref: 'Princess' },
+  princessId: { type: Schema.Types.ObjectId, required: true, },
   creatorId: { type: Schema.Types.ObjectId, required: true },
 }, { timestamps: true, toJSON: { virtuals: true } })
 
