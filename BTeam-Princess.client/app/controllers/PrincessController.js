@@ -8,7 +8,7 @@ import { setHTML } from "../utils/Writer.js";
 
 function _drawPrincesses() {
   let princesses = AppState.princesses
-  console.log('draw princesses', princesses);
+  // console.log('draw princesses', princesses);
   let template = ''
   princesses.forEach(p => template += p.PrincessTemplate)
 
@@ -18,7 +18,7 @@ function _drawPrincesses() {
 
 function _drawActivePrincess() {
   let activePrincess = AppState.activePrincess
-  console.log('activePrincess', activePrincess);
+  // console.log('activePrincess', activePrincess);
 
   // @ts-ignore
   setHTML('activePrincess', activePrincess.ActivePrincessTemplate)
@@ -44,6 +44,7 @@ export class PrincessController {
   }
   async createPrincess(event) {
     try {
+
       event.preventDefault()
       const form = event.target
       const formData = getFormData(form)
