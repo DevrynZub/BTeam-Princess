@@ -27,7 +27,7 @@ export class Princess {
         <p class="fs-5 p-2"><b>${this.name}</b></p>
       </div>
       <div class="col-4 text-center">
-        <button class="p-2 btn btn-success ❤️">${this.likes}</button>
+        <button class="p-2 btn btn-success">❤️${this.likes}</button>
       </div>
       <div class="col-4 text-end">
         <button class="p-2 💬">Comments</button>
@@ -51,7 +51,7 @@ export class Princess {
                   <div class="col-8">Info/User Account</div>
                   <div class="col-4 "><button class="btn btn-danger mdi mdi-delete" onclick="app.PrincessController.deletePrincess('${this.id}')"></button></div>
                   <div class="col-12">Description</div>
-                  <div class="col-12">${this.computeCastleByPrincess}</div>
+                  <div class="col-12">Location: ${this.computeCastleByPrincess}</div>
                 </div>
                 <div class="row">
                   <div class="col-12">Database Comments</div>
@@ -131,16 +131,13 @@ export class Princess {
 
 
   get computeCastleByPrincess() {
+
     const foundCastle = AppState.castles.find(c => c.id == this.castleId)
     console.log('found castle', foundCastle);
     return `
-    <span>${foundCastle.location}</span><span>${foundCastle.climate}</span><span>${foundCastle.typeOfCastle}</span>
+    <span>${foundCastle.location}</span> 
+    <p class="mb-0">${foundCastle.climate}</p> 
+    <p class="mb-0">${foundCastle.typeOfCastle}</p>
     `
-
-
-
   }
-
-
-
 }

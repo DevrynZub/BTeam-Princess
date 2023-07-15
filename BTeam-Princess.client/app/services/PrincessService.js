@@ -23,6 +23,7 @@ class PrincessService {
 
 
   async getPrincesses() {
+
     const res = await api.get('/api/princesses')
     console.log('response', res);
     const princess = res.data.map(p => new Princess(p))
@@ -33,7 +34,7 @@ class PrincessService {
 
   async createPrincess(formData) {
     const createdPrincess = await api.post('/api/princesses', formData)
-    const princess = new Princess(createdPrincess)
+    const princess = new Princess(createdPrincess.data)
     AppState.princesses.push(princess)
     AppState.emit('princesses')
   }

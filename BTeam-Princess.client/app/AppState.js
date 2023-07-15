@@ -20,6 +20,8 @@ class ObservableAppState extends EventEmitter {
 
   castles = []
 
+  comments = []
+
   // Used to load initial data
   init() {
 
