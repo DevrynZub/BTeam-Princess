@@ -1,3 +1,4 @@
+import { AppState } from "../AppState.js"
 
 export class Princess {
   constructor(data) {
@@ -50,7 +51,7 @@ export class Princess {
                   <div class="col-8">Info/User Account</div>
                   <div class="col-4 "><button class="btn btn-danger mdi mdi-delete" onclick="app.PrincessController.deletePrincess('${this.id}')"></button></div>
                   <div class="col-12">Description</div>
-                  <div class="col-12">Castle Info</div>
+                  <div class="col-12">${this.computeCastleByPrincess}</div>
                 </div>
                 <div class="row">
                   <div class="col-12">Database Comments</div>
@@ -88,14 +89,14 @@ export class Princess {
           <input type="text" name="hairColor" id="hairColor" minlength="3" maxlength="30" required>
         </div>
         <div class="mb-2">
-          <label for="castleId">WHat kind of Castle does she live in?</label>
+          <label for="castleId">What kind of Castle does she live in?</label>
           <select id="castleId" name="castleId">
-            <option value="Sand Castle">Sand Castle</option>
-            <option value="Ice Castle">Ice Castle</option>
-            <option value="Aquatic Castle">Aquatic Castle</option>
-            <option value="Cottage">Cottage</option>
-            <option value="Stone Castle">Stone Castle</option>
-            <option value="Cave">Cave</option>
+            <option value="64b1d5ac418b55825cbac592">Sand Castle</option>
+            <option value="64b1d2d8418b55825cbac583">Ice Castle</option>
+            <option value="64b1d666418b55825cbac597">Aquatic Castle</option>
+            <option value="64b1d46e418b55825cbac588">Cottage</option>
+            <option value="64b1d4c2418b55825cbac58a">Stone Castle</option>
+            <option value="64b1d51a418b55825cbac58c">Cave</option>
           </select>
         </div>
         <div class="mb-2">
@@ -113,4 +114,33 @@ export class Princess {
   </div>
     `
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  get computeCastleByPrincess() {
+    const foundCastle = AppState.castles.find(c => c.id == this.castleId)
+    console.log('found castle', foundCastle);
+    return `
+    <span>${foundCastle.location}</span><span>${foundCastle.climate}</span><span>${foundCastle.typeOfCastle}</span>
+    `
+
+
+
+  }
+
+
+
 }

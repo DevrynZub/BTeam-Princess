@@ -18,6 +18,8 @@ class ObservableAppState extends EventEmitter {
 
   activePrincess = null
 
+  castles = []
+
   // Used to load initial data
   init() {
 
