@@ -9,7 +9,9 @@ class CommentsService {
   }
 
   async getCommentsByPrincessId(princessId) {
-    const foundComments = await dbContext.Comments.find({ princessId }).populate('comments', "name body")
+    const foundComments = await dbContext.Comments.find({ princessId })
+    return foundComments
+    // .populate('comments', "name body")
   }
   async createComment(commentData) {
     const createdComment = await dbContext.Comments.create(commentData)
