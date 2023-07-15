@@ -1,5 +1,6 @@
 import { dbContext } from "../db/DbContext.js"
 import { BadRequest, Forbidden } from "../utils/Errors.js"
+import { commentsService } from "./CommentsService.js"
 
 class PrincessesService {
   async getPrincesses() {
@@ -28,6 +29,7 @@ class PrincessesService {
       throw new Forbidden('Hey, you cant do that!')
     }
     await princessToRemove.remove()
+    await commentsService.deletePrincessComments()
   }
 }
 

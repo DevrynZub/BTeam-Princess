@@ -1,4 +1,5 @@
 import { dbContext } from "../db/DbContext.js"
+import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 class CommentsService {
 
@@ -8,13 +9,24 @@ class CommentsService {
   }
 
   async getCommentsByPrincessId(princessId) {
-    const comments = await dbContext.Comments.find({ princessId }).populate('comments', 'name body')
+    const foundComments = await dbContext.Comments.find({ princessId }).populate('comments', "name body")
   }
   async createComment(commentData) {
     const createdComment = await dbContext.Comments.create(commentData)
     await createdComment.populate('Princess', 'name body')
     await createdComment.populate('creator', 'picture name')
     return createdComment
+  }
+
+  async deletePrincessComments(princessId, userId) {
+    // const commentsToDelete = await dbContext.Comments.find({ princessId }).populate('creator', 'creatorId')
+
+    // if (commentsToDelete.creatorId.toString() != userId) {
+    //   throw new Forbidden('Not allowed sir!')
+    // }
+    // await commentsToDelete.remove()
+
+    await dbContext.Comments.deleteMany({ princessId })
   }
 }
 

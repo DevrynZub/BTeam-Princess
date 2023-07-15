@@ -1,5 +1,6 @@
 import { Schema } from "mongoose";
 import { CommentSchema } from "./Comment.js";
+import { CastleSchema } from "./CastleModel.js";
 
 export const PrincessSchema = new Schema({
   name: { type: String, required: true, minlength: 3, maxlength: 30 },
@@ -13,7 +14,7 @@ export const PrincessSchema = new Schema({
 },
   { timestamps: true, toJSON: { virtuals: true } })
 
-PrincessSchema.virtual('Castle', {
+CastleSchema.virtual('Castle', {
   localField: 'castleId',
   foreignField: '_id',
   justOne: true,

@@ -14,6 +14,7 @@ export class PrincessesController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createPrincess)
       .delete('/:princessId', this.removePrincess)
+
   }
 
   async getPrincesses(req, res, next) {
@@ -66,4 +67,6 @@ export class PrincessesController extends BaseController {
       next(error)
     }
   }
+
+
 }
