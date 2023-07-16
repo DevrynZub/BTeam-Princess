@@ -14,6 +14,8 @@ export const PrincessSchema = new Schema({
 },
   { timestamps: true, toJSON: { virtuals: true } })
 
+PrincessSchema.index({ creatorId: 1, likes: 1 }), { unique: true }
+
 CastleSchema.virtual('Castle', {
   localField: 'castleId',
   foreignField: '_id',
