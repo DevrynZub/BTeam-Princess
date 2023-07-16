@@ -1,7 +1,59 @@
 /* BASIC STYLES HERE */
 
-.modal-img {
-  height: 50vh;
-  width: 500vw;
+body {
+  background-image: url("https://th.bing.com/th/id/R.59c0c028da074dc535b3f7d52a4e5df7?rik=Oppmt0zMQ6Lq%2fw&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fBcIbIOd.jpg&ehk=2pRiIqRr2oDgmzv7tg5ZGJdAogPHOh%2b1TIfxUMLLSdw%3d&risl=&pid=ImgRaw&r=0");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
 
+.modal-img {
+  height: 40vh;
+  width: 50;
+}
+
+#activePrincess {
+  background-color: pink;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.princess-picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  max-height: 750px;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+}
+
+.princess-picture img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.custom-navbar {
+  background-color: pink;
+
+}
+
+.custom-navbar .navbar-brand {
+  color: rgb(13, 13, 13);
+  font-size: 18px;
+}
+
+.custom-navbar .custom-button {
+  background-color: rgb(73, 89, 236);
+  color: white;
+}
+
+.princess {
+  margin-top: 75px;
 }
