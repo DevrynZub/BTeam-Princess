@@ -7,17 +7,11 @@ import { api } from "./AxiosService.js"
 class PrincessService {
   async incrementLikes(princessId) {
     // console.log('what is this giving me', princessId);
-    try {
-      const princess = AppState.princesses.find(p => p.id === princessId);
-      if (!princess) {
-        throw new Error('Princess not found');
-      }
-      princess.likes += 1;
-      return princess;
-    } catch (error) {
-      console.error('Error incrementing likes:', error);
-      throw new Error('Failed to increment likes');
-    }
+
+    const princess = AppState.princesses.find(p => p.id === princessId);
+
+    // @ts-ignore
+    princess.likes += 1;
   }
 
 

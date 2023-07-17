@@ -73,10 +73,9 @@ export class PrincessesController extends BaseController {
   async incrementLikes(req, res, next) {
     try {
       const princessId = req.params.princessId;
-      // Perform the logic to increment the likes count for the princess in the database
+
       const updatedPrincess = await princessesService.incrementLikes(princessId);
 
-      // Send the updated princess data as the response
       res.send(updatedPrincess);
     } catch (error) {
       next(error);

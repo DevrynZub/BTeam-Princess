@@ -16,7 +16,7 @@ export class Princess {
 
   get PrincessTemplate() {
     return `
-    <div class="col-md-8 col-12 p-3 princess-style pb-2 glass-box">
+    <div class="col-md-8 col-12  p-3 princess-style pb-2 glass-box">
       <div class="selectable" onclick="app.PrincessController.setActivePrincess('${this.id}')" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <div class="d-flex justify-content-center">
           <div class="princess-picture">
