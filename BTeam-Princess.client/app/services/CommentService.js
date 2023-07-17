@@ -20,6 +20,7 @@ class CommentService {
     // @ts-ignore
     // debugger
     const activePrincess = AppState.activePrincess
+    // @ts-ignore
     const res = await api.get(`api/princesses/${activePrincess.id}/comments`)
     console.log(res);
     // const comments = res.data.map(c => new Comment(c))

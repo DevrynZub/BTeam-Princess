@@ -10,6 +10,7 @@ export class Princess {
     this.id = data.id
     this.likes = data.likes
     this.description = data.description
+    this.creatorId = data.creatorId
   }
 
 
@@ -47,16 +48,17 @@ export class Princess {
               </div>
               <div class="col-4">
                 <div class="row">
-                  <div class="col-8">Info/User Account</div>
                   <div class="col-4 "><button class="btn btn-danger mdi mdi-delete" onclick="app.PrincessController.deletePrincess('${this.id}')"></button></div>
-                  <div class="col-12">Description</div>
-                  <div class="col-12">Location: ${this.computeCastleByPrincess}</div>
+                  <div class="col-12 pt-1">Quote: ${this.description}</div>
+                  <div class="col-12 pt-2">Location: ${this.computeCastleByPrincess}</div>
                 </div>
-                <div class="row">
-                  <div class="col-12">Database Comments</div>
-                  <div class="col-12">Add Comment</div>
-                  <div class="col-12">${this.likes}</div>
+                <div class="row pt-3">
+                <div class="col-12">
+                  <input type="text" id="comment-input" placeholder="Enter your comment..." />
+                  <button class="btn btn-dark" onclick="addComment()">💬</button>
                 </div>
+                <div class="col-12">Total Likes: ${this.likes}</div>
+              </div>
               </div>
             </div>
           </div>

@@ -15,6 +15,8 @@ function _drawPrincesses() {
 
   setHTML('princess', template)
 
+
+
 }
 
 function _drawActivePrincess() {
@@ -24,6 +26,8 @@ function _drawActivePrincess() {
   // @ts-ignore
   setHTML('activePrincess', activePrincess.ActivePrincessTemplate)
 }
+
+
 
 
 

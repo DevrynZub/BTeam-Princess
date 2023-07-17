@@ -32,14 +32,20 @@ export class CommentController {
       Pop.error(error.message)
     }
   }
-  async createComment(event) {
-    event.preventDefault()
-    const form = event.target
-    let formData = getFormData(form)
-    await commentService.createComment(formData)
-
+  async createComment(req, res, next) {
+    try {
+      const commentData = req.body;
+      // Save the comment data to the database
+      const createdComment = await commentService.createComment(commentData);
+      res.status(201).send(createdComment);
+    } catch (error) {
+      next(error);
+    }
   }
-
-
-
 }
+
+
+
+
+
+export const commentsController = new CommentController()
