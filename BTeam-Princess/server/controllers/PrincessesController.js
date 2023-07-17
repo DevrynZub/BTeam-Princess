@@ -3,6 +3,7 @@ import { Auth0Provider } from "@bcwdev/auth0provider";
 import { princessesService } from "../services/PrincessesService.js";
 import BaseController from "../utils/BaseController.js";
 import { commentsService } from "../services/CommentsService.js";
+import { dbContext } from "../db/DbContext.js";
 
 export class PrincessesController extends BaseController {
   constructor() {
@@ -14,6 +15,7 @@ export class PrincessesController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createPrincess)
       .delete('/:princessId', this.removePrincess)
+      .put('/:princessId/likes', this.incrementLikes);
 
   }
 
@@ -68,5 +70,17 @@ export class PrincessesController extends BaseController {
     }
   }
 
+  async incrementLikes(req, res, next) {
+    try {
+      const princessId = req.params.princessId;
+      // Perform the logic to increment the likes count for the princess in the database
+      const updatedPrincess = await princessesService.incrementLikes(princessId);
+
+      // Send the updated princess data as the response
+      res.send(updatedPrincess);
+    } catch (error) {
+      next(error);
+    }
+  }
 
 }
