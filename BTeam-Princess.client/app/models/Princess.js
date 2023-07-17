@@ -50,11 +50,11 @@ export class Princess {
                 <div class="row">
                   <div class="col-8">Info/User Account</div>
                   <div class="col-4 "><button class="btn btn-danger mdi mdi-delete" onclick="app.PrincessController.deletePrincess('${this.id}')"></button></div>
-                  <div class="col-12">Description</div>
+                  <div class="col-12">${this.description}</div>
                   <div class="col-12">Location: ${this.computeCastleByPrincess}</div>
                 </div>
                 <div class="row">
-                  <div class="col-12">Database Comments</div>
+                  <div class="col-12">DATABASE COMMENTS</div>
                   <div class="col-12">Add Comment</div>
                   <div class="col-12">${this.likes}</div>
                 </div>

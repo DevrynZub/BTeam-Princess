@@ -4,6 +4,7 @@ import { api } from "./AxiosService.js"
 
 
 class PrincessService {
+
   async deletePrincess(princessId) {
     const princessToBeDeleted = AppState.princesses.findIndex(p => p.id == princessId)
 
