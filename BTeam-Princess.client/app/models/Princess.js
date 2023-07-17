@@ -20,7 +20,7 @@ export class Princess {
       <div class="selectable" onclick="app.PrincessController.setActivePrincess('${this.id}')" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <div class="d-flex justify-content-center">
           <div class="princess-picture">
-            <img class="elevation-5 rounded" src="${this.imgUrl}" alt="${this.name}">
+            <img src="${this.imgUrl}" alt="${this.name}">
           </div>
         </div>
       </div>
@@ -30,8 +30,7 @@ export class Princess {
         </div>
         <div class="col-12 col-md-6 text-md-end p-2">
         <button class="p-2 btn btn-success" onclick="app.PrincessController.incrementLikes('${this.id}')">❤️${this.likes}</button>
-
-      </div>
+        </div>
       </div>
     </div>
   `;

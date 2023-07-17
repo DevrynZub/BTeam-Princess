@@ -83,3 +83,7 @@ body {
   margin-right: 10px;
   /* Adjust margin as needed */
 }
+
+.img-max-width {
+  max-width: 100%;
+}
