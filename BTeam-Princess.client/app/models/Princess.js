@@ -27,10 +27,9 @@ export class Princess {
         <div class="col-12 col-md-6">
           <p class="fs-5 p-2"><b>${this.name}</b></p>
         </div>
-        <div class="col-12 col-md-6 text-md-end">
-        <button class="p-2 btn btn-success" id="likeButton_${this.id}">
-          ❤️<span id="likeCount_${this.id}">${this.likes}</span>
-        </button>
+        <div class="col-12 col-md-6 text-md-end p-2">
+        <button class="p-2 btn btn-success" onclick="app.PrincessController.incrementLikes('${this.id}')">❤️${this.likes}</button>
+
       </div>
       </div>
     </div>

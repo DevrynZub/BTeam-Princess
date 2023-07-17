@@ -31,6 +31,26 @@ class PrincessesService {
     await princessToRemove.remove()
     await commentsService.deletePrincessComments()
   }
+
+  async incrementLikes(princessId) {
+    // Get the princess document from the database
+    const princess = await dbContext.Princesses.findById(princessId);
+
+    if (!princess) {
+      throw new Error('Princess not found');
+    }
+
+    // Increment the likes count
+    princess.likes += 1;
+
+    // Save the updated princess document back to the database
+    await princess.save();
+
+    // Return the updated princess data
+    return princess;
+  }
+
+
 }
 
 export const princessesService = new PrincessesService()

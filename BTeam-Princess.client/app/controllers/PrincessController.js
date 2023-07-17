@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js";
 import { Princess } from "../models/Princess.js";
+import { api } from "../services/AxiosService.js";
 import { princessService } from "../services/PrincessService.js";
 import { getFormData } from "../utils/FormHandler.js";
 import { Pop } from "../utils/Pop.js";
@@ -33,6 +34,8 @@ export class PrincessController {
     AppState.on('princesses', _drawPrincesses)
     AppState.on('activePrincess', _drawActivePrincess)
   }
+
+
 
   async getPrincesses() {
     try {
@@ -90,4 +93,14 @@ export class PrincessController {
     setHTML('activePrincess', Princess.princessForm)
   }
 
+  async incrementLikes(princessId) {
+    // console.log('what is this giving me', princessId);
+    try {
+      const response = await api.put(`/api/princesses/${princessId}/likes`);
+      return response.data
+    } catch (error) {
+      console.error('Error incrementing likes:', error);
+      throw new Error('Failed to increment likes');
+    }
+  }
 }

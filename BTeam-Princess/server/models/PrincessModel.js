@@ -11,8 +11,10 @@ export const PrincessSchema = new Schema({
   description: { type: String, maxlength: 250 },
   creatorId: { type: Schema.Types.ObjectId, required: true },
   castleId: { type: Schema.Types.ObjectId, required: true },
+
 },
   { timestamps: true, toJSON: { virtuals: true } })
+
 
 PrincessSchema.index({ creatorId: 1, likes: 1 }), { unique: true }
 
@@ -27,4 +29,8 @@ PrincessSchema.virtual('creator', {
   foreignField: '_id',
   ref: 'Account'
 })
+
+
+
+
 
